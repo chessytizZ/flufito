@@ -6,16 +6,13 @@ if (!isset($_SESSION["login"])) {
 ?>
 <?php
 include("conexion.php");
-
 $id=$_REQUEST['id'];
-$archivo = $_REQUEST['archivo'];
-unlink('archivo/'. $archivo);
 
- $query="DELETE FROM homologaciones WHERE id='$id'";
+ $query="DELETE FROM herramientas WHERE id='$id'";
  $resultado= $conexion->query($query);
 
 if ($resultado) {
-    header("location:registros_homologaciones.php");
+    header("location:mostrar_herramientas.php");
 }
 else{
     echo $conexion->error;

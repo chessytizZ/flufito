@@ -98,8 +98,10 @@ margin-top: 8%;
         width: 95%;
     }
 </style>
+<br>
+<br>
     <form class="form" action="personal_guardar.php" enctype="multipart/form-data" method="POST">
-        <h2>REGISTRO PERSONAL</h2>
+        <h2 id="titulo">REGISTRO PERSONAL</h2>
         <p type="N° de Certificado"><input class="input" type="text"  placeholder="Introduzca número de certificado" name="num_cert" ></input></p>
         <p type="Cédula"><input class="input" type="number"  placeholder="Introduzca número de cédula" name="num_ced" required></input></p>
         <p type="Nombre Completo"><input class="input" type="text"  placeholder="Introduzca nombre completo" name="nom_comp" required></input></p>
@@ -118,8 +120,10 @@ margin-top: 8%;
         
         </select>
       
+       
 
         <input class="a" type="submit" name="subir" value="REGISTRAR"></input>
+        <br>
       </form>
 <br>
 <br>

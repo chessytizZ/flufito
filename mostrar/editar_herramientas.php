@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION["login"])) {
-    header("location:login.php");
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +11,8 @@ if (!isset($_SESSION["login"])) {
   <title>A Group Projects</title>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="css/administracion.css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/administracion.css">
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -77,9 +69,10 @@ if (!isset($_SESSION["login"])) {
       </nav>
 
       <div class="container-fluid">
-  
+ 
 
-      <style> 
+
+<style> 
 #cerrar-sesion{
   margin-left: 660%;
   width: 130px;
@@ -98,17 +91,26 @@ margin-top: 8%;
         width: 95%;
     }
 </style>
-    <form class="form" enctype="multipart/form-data" action="editar_proceso_equipo.php?id=<?php echo $row['id']; ?>" method="POST">
+<?php
+        $id=$_REQUEST['id'];
+          include("conexion.php");
+
+          $query="SELECT * FROM herramientas WHERE id = '$id'";
+          $resultado= $conexion->query($query);
+          $row=$resultado->fetch_assoc();
+            
+          
+          ?>
+<form class="form" enctype="multipart/form-data" action="editar_proceso_herramientas.php?id=<?php echo $row['id']; ?>" method="POST">
         <h2>EDITAR</h2>
-        <p type="Código de Serial"><input class="input" value="<?php echo $row['nombre_equipo']; ?>" type="text"  placeholder="Introduzca Código Serial" name="nombre_equipo" required></input></p>
-        <p type="Modelo"><input class="input" type="text" value="<?php echo $row['nombre_empresa']; ?>" placeholder="Introduzca Modelo del Equipo" name="nombre_empresa" required></input></p>
-     
+        <p type="N° de Certificado"><input class="input" value="<?php echo $row['num_cert']; ?>" type="text"  placeholder="Introduzca número de certificado" name="num_cert" required></input></p>
+        <p type="Instrumento"><input class="input" type="" value="<?php echo $row['instrumento']; ?>" placeholder="Introduzca instrumento" name="instrumento" required></input></p>
+        <p type="Modelo"><input class="input" value="<?php echo $row['modelo']; ?>" type="text"  placeholder="Introduzca modelo" name="modelo" required></input></p>
+        <p type="Fecha de Expedición"><input value="<?php echo $row['fech_exp']; ?>" class="input" type="date" name="fech_exp"></input></p>
+        <p type="Fecha de Vencimiento"><input value="<?php echo $row['fech_ven']; ?>" class="input" type="date" name="fech_ven"></input></p>
 
         <input class="a" name="subir" type="submit" value="EDITAR"></input>
       </form>
-    
-
-    </div>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -130,6 +132,3 @@ margin-top: 8%;
 </body>
 
 </html>
-
-
-

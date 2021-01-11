@@ -98,8 +98,10 @@ margin-top: 8%;
         width: 95%;
     }
 </style>
-<form class="form" action="administracion_guardar.php" enctype="multipart/form-data" method="POST">
-        <h2>REGISTRO DE HERRAMIENTAS</h2>
+<br>
+<br>
+<form class="form" action="herramientas_guardar.php" enctype="multipart/form-data" method="POST">
+        <h2 id="titulo">REGISTRO DE HERRAMIENTAS</h2>
         <p type="N° de Certificado"><input class="input" type="text"  placeholder="Introduzca número de certificado" name="num_cert" required></input></p>
         <p type="Instrumento"><input class="input" type="text"  placeholder="Introduzca instrumento" name="instrumento" required></input></p>
         <p type="Modelo"><input class="input" type="text"  placeholder="Introduzca modelo" name="modelo" required></input></p>
@@ -109,10 +111,12 @@ margin-top: 8%;
         </select>
 
         <input class="a" type="submit" name="subir" value="REGISTRAR"></input>
+        <br>
       </form>
+      <br>
 <br>
-
-    
+<br>
+<br>
     </div>
     </div>
     <!-- /#page-content-wrapper -->
