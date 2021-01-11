@@ -16,10 +16,20 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("location:login.php");
+}
+?>
+
+
 <style>
   .sidebar-heading{
     color: rgb(255, 40, 2);
@@ -28,24 +38,14 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">A Group Projects </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Inicio</a>
-        <a href="mostrar.php" class="list-group-item list-group-item-action bg-light">Mostrar Listado</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Registrar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Editar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Eliminar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Salir</a>
-      </div>
-    </div>
+    <?php include("sidebar.php") ?>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-light " id="menu-toggle"><img class="toggle-1" src="../img/toggle.png" alt="" srcset=""></button>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+        <button class="btn btn-dark " id="menu-toggle"><img class="toggle-1" src="../img/toggle.png" alt="" srcset=""></button>
 <style>
 .toggle-1{
   height: 2em;
@@ -83,27 +83,29 @@
 
 
 </style>
-<?php
-        $id=$_REQUEST['id'];
-          include("conexion.php");
-
-          $query="SELECT * FROM equipos WHERE id = '$id'";
-          $resultado= $conexion->query($query);
-          $row=$resultado->fetch_assoc();
-            
-          
+          <?php
+            $id=$_REQUEST['id'];
+            include("conexion.php");
+            $query="SELECT * FROM equipos WHERE id = '$id'";
+            $resultado= $conexion->query($query);
+            $row=$resultado->fetch_assoc();
           ?>
+<br>
+<br>
     <form class="form" enctype="multipart/form-data" action="editar_proceso_equipos.php?id=<?php echo $row['id']; ?>" method="POST">
-        <h2>EDITAR</h2>
+        <h2 id="titulo">EDITAR</h2>
         <p type="N° de Certificado"><input class="input" value="<?php echo $row['num_cert']; ?>" type="text"  placeholder="Introduzca número de certificado" name="num_cert" required></input></p>
         <p type="Instrumento"><input class="input" type="" value="<?php echo $row['instrumento']; ?>" placeholder="Introduzca instrumento" name="instrumento" required></input></p>
         <p type="Modelo"><input class="input" value="<?php echo $row['modelo']; ?>" type="text"  placeholder="Introduzca modelo" name="modelo" required></input></p>
         <p type="Fecha de Expedición"><input value="<?php echo $row['fech_exp']; ?>" class="input" type="date" name="fech_exp"></input></p>
         <p type="Fecha de Vencimiento"><input value="<?php echo $row['fech_ven']; ?>" class="input" type="date" name="fech_ven"></input></p>
-
+<br>
         <input class="a" name="subir" type="submit" value="EDITAR"></input>
+   <br>
       </form>
     </div>
+    <br>
+    <br>
     <!-- /#page-content-wrapper -->
 
   </div>

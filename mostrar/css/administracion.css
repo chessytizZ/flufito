@@ -6,18 +6,21 @@ body{
     color: rgb(172, 171, 171);
 }
 .form{
+
     width:60%;
-    background:#f0f0f0;
-    border-radius:8px;
-    box-shadow:0 0 40px -19px #000;
+    background:#ffffff!important;
+    border-radius:3px;
+    /* box-shadow:0 0 38px -10px #000;  */
    left: 18%;
     padding:80px 30px;
-
+border: rgb(0, 0, 0);
     box-sizing:border-box;
     font-family:'Montserrat',sans-serif;
     position:relative;
  
 }
+
+
 
 #campo{
     position: relative;
@@ -27,25 +30,38 @@ body{
 }
 
 #opciones{
-
     padding-bottom:10px;
-    background-color: white!important;
-    font-size: 13px;
+
+    font-size: 16px;
     width:100%;
-    color:#000000;
-    border:1px solid rgb(0, 0, 0)!important;
+    color:#000000!important;
+    letter-spacing: 1px;
+    font-family: serif;
+  
     transition:all .3s;
 }
-#opciones:hover{
-    background-color: rgb(90, 90, 90)!important;
-    color:#dadada;
+.editar{
+    background-color: rgb(23, 143, 255)!important;
+}
+.editar:hover{
+    background-color: rgb(39, 36, 211)!important;
+    color:#dadada!important;
+}
+.eliminar{
+    background-color: rgb(255, 23, 23)!important;
+}
+.eliminar:hover{
+    background-color: rgb(189, 0, 0)!important;
+    color:#dadada!important;
 }
 .titulo-39{
     font-size: 14px!important;
+    
 }
 #titulo{
     font-size: 30px;
     margin-top: -6%;
+    color: rgb(204, 204, 204);
 }
 .input{
     width:100%;
@@ -57,32 +73,32 @@ body{
     border:0;
     font-family:'Montserrat',sans-serif;
     transition:all .3s;
-    border-bottom:2px solid #494949;
+    border-bottom:2px solid #4b4b4b;
 }
 .input:focus{
-    border-bottom:2px solid #ff3300;
+    border-bottom:2px solid #9c9c9c;
 }
 p:before{
     content:attr(type);
     display:block;
     margin:28px 0 0;
     font-size:14px;
-    color:#000000;
+    color:#252525;
 }
 .a{
     float:right;
     padding:8px 12px;
     margin:30px 0 0;
     font-family:'Montserrat',sans-serif;
-    border:2px solid #ff4800;
+    border:2px solid #9c9c9c;
     background:0;
-    color:#ff1e00;
+    color:#424242;
     cursor:pointer;
     transition:all .3s;
 }
 
 .a:hover{
-    background:#b31500;
+    background:#000000;
     color:rgb(199, 199, 199);
 }
 
