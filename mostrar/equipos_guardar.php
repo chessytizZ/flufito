@@ -10,7 +10,7 @@ include("conexion.php");
             $fech_ven=$_POST['fech_ven'];
 
 
-            $query="INSERT INTO equipos(num_cert, instrumento, modelo, fech_exp, fech_ven) VALUES('$num_cert', '$instrumento', $modelo', '$fech_exp', '$fech_ven')";
+            $query="INSERT INTO equipos(num_cert, instrumento, modelo, fech_exp, fech_ven) VALUES('$num_cert', '$instrumento', '$modelo', '$fech_exp', '$fech_ven')";
             $resultado= $conexion->query($query);
 
             if ($resultado) {

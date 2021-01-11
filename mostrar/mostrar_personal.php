@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/administracion.css">
 
 </head>
 
@@ -89,14 +90,14 @@ margin-top: 8%;
     <table class="table table-striped table-striped" id="ajustes">
         <thead>
           <tr>
-            <th scope="col" >N° de Certificado</th>
-            <th scope="col">Cédula</th>
-            <th scope="col">Nombre Completo</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Fecha de Expedición</th>
-            <th scope="col">Fecha de Vencimiento</th>
-            <th scope="col">Método</th>
-            <th scope="col" id="opcion">Opciones</th>
+            <th scope="col" class="titulo-39" >N° de Certificado</th>
+            <th scope="col" class="titulo-39">Cédula</th>
+            <th scope="col" class="titulo-39">Nombre Completo</th>
+            <th scope="col" class="titulo-39">Estado</th>
+            <th scope="col" class="titulo-39">Fecha de Expedición</th>
+            <th scope="col" class="titulo-39">Fecha de Vencimiento</th>
+            <th scope="col" class="titulo-39">Método</th>
+            <th scope="col" class="titulo-39" id="opcion">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -142,8 +143,8 @@ margin-top: 8%;
           
           
           </td>
-            <td><a class='btn btn_danger' id="opciones" href="editar.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
-            <td><a class='btn btn_danger' id="opciones" href="eliminar.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
+            <td><a class='btn btn_danger' id="opciones" href="editar_personal.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
+            <td><a class='btn btn_danger' id="opciones" href="eliminar_personal.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
           </tr>
        <?php
        }

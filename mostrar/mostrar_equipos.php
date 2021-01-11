@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/administracion.css">
 
 </head>
 
@@ -89,18 +90,19 @@ margin-top: 8%;
     <table class="table table-striped table-striped" id="ajustes">
         <thead>
           <tr>
-            <th scope="col" >N° de Certificado</th>
-            <th scope="col">Instrumento</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Fecha de Expedición</th>
-            <th scope="col">Fecha de Vencimiento</th>
+            <th scope="col"  >N° de Certificado</th>
+            <th scope="col" >Instrumento</th>
+            <th scope="col" >Modelo</th>
+            <th scope="col" >Fecha de Expedición</th>
+            <th scope="col" >Fecha de Vencimiento</th>
+            <th scope="col"  id="opcion">Opciones</th>
           </tr>
         </thead>
         <tbody>
         <?php
            include("conexion.php");
 
-           $query="SELECT * FROM herramientas";
+           $query="SELECT * FROM equipos";
            $resultado=$conexion->query($query);
            while($row=$resultado->fetch_assoc()){
              
@@ -116,8 +118,8 @@ margin-top: 8%;
            
            
            </td>
-             <td><a class='btn btn_danger' id="opciones" href="editar.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
-             <td><a class='btn btn_danger' id="opciones" href="eliminar.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
+             <td><a class='btn ' id="opciones" href="editar_equipos.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
+             <td><a class='btn ' id="opciones" href="eliminar_equipos.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
            </tr>
         <?php
         }

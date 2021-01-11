@@ -8,6 +8,11 @@
     overflow-x: hidden;
  }
 
+ .sidebar-heading{
+color: rgb(0, 0, 0)!important;
+
+ }
+
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;

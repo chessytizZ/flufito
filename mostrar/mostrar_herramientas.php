@@ -15,14 +15,13 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/administracion.css">
 
 </head>
 
 <body>
 <style>
-  .sidebar-heading{
-    color: rgb(255, 40, 2);
-  }
+ 
 </style>
   <div class="d-flex" id="wrapper">
 
@@ -94,6 +93,7 @@ margin-top: 8%;
             <th scope="col">Modelo</th>
             <th scope="col">Fecha de Expedición</th>
             <th scope="col">Fecha de Vencimiento</th>
+            <th scope="col" id="opcion">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -116,8 +116,8 @@ margin-top: 8%;
            
            
            </td>
-             <td><a class='btn btn_danger' id="opciones" href="editar.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
-             <td><a class='btn btn_danger' id="opciones" href="eliminar.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
+             <td><a class='btn btn_danger' id="opciones" href="editar_herramientas.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
+             <td><a class='btn btn_danger' id="opciones" href="eliminar_herramientas.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
            </tr>
         <?php
         }
