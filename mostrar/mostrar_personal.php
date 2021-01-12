@@ -16,10 +16,18 @@
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
   <link rel="stylesheet" href="css/administracion.css">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("location:login.php");
+}
+?>
 <style>
   .sidebar-heading{
     color: rgb(255, 40, 2);
@@ -28,24 +36,15 @@
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">A Group Projects </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Inicio</a>
-        <a href="mostrar.php" class="list-group-item list-group-item-action bg-light">Mostrar Listado</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Registrar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Editar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Eliminar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Salir</a>
-      </div>
-    </div>
+    <?php include("sidebar.php") ?>
+
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-light " id="menu-toggle"><img class="toggle-1" src="../img/toggle.png" alt="" srcset=""></button>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+        <button class="btn btn-dark " id="menu-toggle"><img class="toggle-1" src="../img/toggle.png" alt="" srcset=""></button>
 <style>
 .toggle-1{
   height: 2em;
@@ -143,8 +142,8 @@ margin-top: 8%;
           
           
           </td>
-            <td><a class='btn btn_danger' id="opciones" href="editar_personal.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
-            <td><a class='btn btn_danger' id="opciones" href="eliminar_personal.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
+            <td><a class='btn editar' id="opciones" href="editar_personal.php?id=<?php echo $row['id']; ?>"> Editar</a></td>
+            <td><a class='btn eliminar' id="opciones" href="eliminar_personal.php?id=<?php echo $row['id']; ?>"> Eliminar</a></td>
           </tr>
        <?php
        }
